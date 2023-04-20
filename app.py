@@ -12,10 +12,7 @@ from datetime import datetime
 import locale
 
 app = Flask(__name__)
-
-
-
-   #test
+      #test
 locale.setlocale(locale.LC_TIME, '')
 
 @app.route('/')
