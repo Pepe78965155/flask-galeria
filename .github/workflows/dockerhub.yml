@@ -14,17 +14,20 @@ jobs:
   build_and_test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-         
-    - name: Login to DockerHub
-      uses: docker/login-action@v2 
-      with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
-        
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v4
-      with:
-        context: .
-        push: true 
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/galeria:latest,${{ secrets.DOCKERHUB_USERNAME }}/galeria:$(date +%F)
+      - name: Set current date as env variable
+        run: | 
+          echo "{date}={$(date +'F')}" >> $GITHUB_STATE
+      - uses: actions/checkout@v2
+          
+      - name: Login to DockerHub
+        uses: docker/login-action@v2 
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true 
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/galeria:latest,${{ secrets.DOCKERHUB_USERNAME }}/galeria:${{ env.date }}
