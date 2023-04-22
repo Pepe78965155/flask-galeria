@@ -3,8 +3,12 @@ name: Docker CI/CD
 on:
   push:
     branches: [ main ]
+    paths:
+      - src/**
   pull_request:
     branches: [ main ]
+    paths:
+      - src/**
 
 jobs:
   build_and_test:
@@ -23,4 +27,4 @@ jobs:
       with:
         context: .
         push: true 
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/galeria:latest
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/galeria:latest,${{ secrets.DOCKERHUB_USERNAME }}/galeria:$(date +%F)
