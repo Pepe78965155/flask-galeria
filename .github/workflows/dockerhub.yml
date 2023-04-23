@@ -11,7 +11,8 @@ on:
       - src/**
 
 jobs:
-  build_and_test:
+  build:
+    name: build and push Docker image
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -28,3 +29,24 @@ jobs:
           context: .
           push: true 
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/galeria:latest
+      # - name: Sleep for 60 seconds
+      #   run: sleep 60s
+      #   shell: bash
+
+  # aws:
+  #   name: Deploy image to aws
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - name: multiple command
+  #     uses: appleboy/ssh-action@master
+  #     with:
+  #       host: ${{ secrets.HOSTNAME }}
+  #       username: ${{ secrets.USER_NAME }}
+  #       key: ${{ secrets.AWS_PRIVATE_KEY }}
+  #       port: 22  # ${{ secrets.PORT }}
+  #       script: |
+  #           sleep 60
+  #           docker stop web && docker rm web
+  #           docker rmi angoies/galeria
+  #           docker run -d -p 80:5000 --name web angoies/galeria
