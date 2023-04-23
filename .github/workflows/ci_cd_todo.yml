@@ -61,7 +61,17 @@ jobs:
         key: ${{ secrets.AWS_PRIVATE_KEY }}
         port: 22  # ${{ secrets.PORT }}
         script: |
-            sleep 60
+            sleep 30
             docker stop web && docker rm web
             docker rmi angoies/galeria
             docker run -d -p 80:5000 --name web angoies/galeria
+            sleep 30
+  curl:
+    name: Test URL con curl
+    needs: aws
+    runs-on: ubuntu-latest
+    steps:
+    - name: curl
+      uses: wei/curl@master
+      with:
+        args: http://${{ secrets.HOSTNAME }}
