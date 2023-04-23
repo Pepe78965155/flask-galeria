@@ -49,7 +49,7 @@ doc
 
 ##  Error al hacer buil de la imagen por problema red
 
-    ```console
-    systemctl restart NetworkManager.service
-    sudo service docker restart
-    ``` 
+```console
+systemctl restart NetworkManager.service
+sudo service docker restart
+``` 
