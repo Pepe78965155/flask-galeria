@@ -4,6 +4,9 @@
 - La aplicación usa el framework Flask (python) y muestra la fecha y una imagen aleatoria tomada de <https://loremflickr.com/>
 doc 
 - Aplicación de ejemplo para usar en práctica Deploy de contenedor Docker en EC2 AWS.
+    - Action to lint 
+    - Action to build and push image
+    - Action to deploy image in AWS
 
 ## Uso 
 
