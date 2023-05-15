@@ -1,7 +1,7 @@
 # From https://github.com/datademofun/heroku-basic-flask
 # Nota: en ese tutorial se ve como hacerlos
 # - con Heroku CLI
-# - sin usar GitHubds
+# - sin usar GitHubdsdsadsa
 #   Aunque luego al final lo manda a GitHub
 
 from flask import Flask, render_template
