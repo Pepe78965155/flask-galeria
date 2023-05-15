@@ -1,6 +1,6 @@
 # From https://github.com/datademofun/heroku-basic-flask
 # Nota: en ese tutorial se ve como hacerlos
-# - con Heroku CLI.
+# - con Heroku CLI.dsa
 # - sin usar GitHubdsdsadsa
 #   Aunque luego al final lo manda lkka GitdwsHub
 
