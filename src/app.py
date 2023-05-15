@@ -2,7 +2,7 @@
 # Nota: en ese tutorial se ve como hacerlos
 # - con Heroku CLI
 # - sin usar GitHubdsdsadsa
-#   Aunque luego al final lo manda lkka GitHub
+#   Aunque luego al final lo manda lkka GitdwsHub
 
 from flask import Flask, render_template
 from datetime import datetime
